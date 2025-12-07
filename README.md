@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Bartalis Krisztián - Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio website showcasing my work, skills, and experience as a full-stack web developer.
+
+## Live Site
+
+[https://bartaliskrisztian.github.io](https://bartaliskrisztian.github.io)
+
+## Tech Stack
+
+- **React 18** with TypeScript
+- **Material-UI (MUI)** - UI component library
+- **Emotion** - CSS-in-JS styling
+- **React Router** - Client-side routing
+- **React Reveal** - Scroll animations
+
+## Project Structure
+
+- `/src/components` - React components (Header, Home, MyWorks, Skills, Contact, Footer)
+- `/src/hooks` - Custom React hooks (window position tracking, image loading)
+- `/src/theme` - Material-UI theme configuration
+- `/src/providers` - Context providers (DrawerProvider)
+- `/src/assets` - Images and tech stack data
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm start` or `yarn start`
 
-### `yarn start`
+Runs the app in development mode at [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm run build` or `yarn build`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Builds the app for production to the `build` folder.
 
-### `yarn test`
+### `npm run deploy` or `yarn deploy`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Deploys the built app to GitHub Pages.
 
-### `yarn build`
+### `npm test` or `yarn test`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Launches the test runner in interactive watch mode.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Development
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project was bootstrapped with Create React App and uses TypeScript for type safety. The portfolio features:
 
-### `yarn eject`
+- Responsive design with mobile-first approach
+- Custom theme with dark color scheme
+- Smooth scroll animations
+- Project showcase with detailed drawer view
+- Skills section with tech stack display
+- Contact information and social links
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Deployment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The site is automatically deployed to GitHub Pages using the `gh-pages` package. Run `npm run deploy` to build and deploy the latest version.
