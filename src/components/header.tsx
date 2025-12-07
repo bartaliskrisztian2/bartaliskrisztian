@@ -39,9 +39,7 @@ export const Header = () => {
     } : {}),
     backgroundColor: scrollPosition > 30 ? 'rgba(1, 1, 1, 0.8)' : 'transparent',
   }), [isMobileView, scrollPosition]);
-  console.log({rootSx});
   
-
   return (
     <Box sx={rootSx}>
       <AppBar position="static" sx={{ backgroundColor: 'inherit', pt: { xs: 0, md: 2 } }}>

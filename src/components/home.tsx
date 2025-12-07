@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography/Typography";
 import PlaceIcon from '@mui/icons-material/Place';
 import Image1 from '../assets/images/home/bartalis-krisztian-1.jpg';
 import Image2 from '../assets/images/home/bartalis-krisztian-2.jpg';
-import Image3 from '../assets/images/home/bartalis-krisztian-3.jpg';
+import Image3 from '../assets/images/home/bartalis-krisztian-3.png';
 import Image4 from '../assets/images/home/alex.jpg';
 import Image5 from '../assets/images/home/bartalis-krisztian-4.jpg';
 import Image6 from '../assets/images/home/workspace.jpg';
@@ -43,7 +43,7 @@ export const Home = () => {
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.primary', m: { xs: 'auto', md: 0 } }}>
             <PlaceIcon sx={{ pr: 1, verticalAlign: 'bottom' }} />
-            Budapest, Hungary
+            Székelyudvarhely, Romania
           </Typography>
         </Grid>
         <Grid pt={2}>
@@ -69,10 +69,10 @@ export const Home = () => {
         </Typography>
         <Grid container pt={2} flexDirection="column" rowGap="12px">
           <Typography sx={{ color: '#8d8d8d' }} variant="body2">
-            Just a guy trying to squeeze every drop out of life. Whether it's a side project, a pet experiment, or just diving into something new, there's always something brewing in my world. If only the day had more than 24 hours—then maybe I’d have enough time to build cool stuff, stay in shape, and nurture my relationships.
+            Just a guy trying to squeeze every drop out of life. Whether it's a side project, a pet project, or just diving into something new, there's always something brewing in my world. If only the day had more than 24 hours—then maybe I’d have enough time to build cool stuff, stay in shape, and nurture my relationships.
           </Typography >
           <Typography sx={{ color: '#8d8d8d' }} variant="body2">
-            Balancing all these passions is a challenge, but that’s what keeps life exciting. I thrive on self-improvement, pushing limits, and making every moment count. My interests? Personal growth, self-discipline, craft beer, and MMA. I play football, hike, hit the gym whenever I can, and enjoy fishing when I need a reset.
+            Balancing all these passions is a challenge, but that’s what keeps life exciting. I thrive on self-improvement, pushing limits, and making every moment count. My interests? Personal growth, self-discipline, craft beer, and MMA. I play football, hit the gym whenever I can, and enjoy hiking or fishing when I need a reset.
           </Typography >
           <Typography sx={{ color: '#8d8d8d' }} variant="body2">
             And of course, life wouldn’t be the same without my crew—an amazing bunch of friends who make every hangout legendary.

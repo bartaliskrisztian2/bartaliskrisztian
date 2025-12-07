@@ -50,7 +50,7 @@ export const Contact = () => (
           </a>
         </Grid>
         <Grid p={1}>
-          <a style={styles.link} target="_blank" rel="noreferrer" href='https://www.instagram.com/__burai'>
+          <a style={styles.link} target="_blank" rel="noreferrer" href='https://www.instagram.com/bartaliskrisztian'>
             <InstagramIcon style={styles.icon} />
           </a>
         </Grid>
