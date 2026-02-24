@@ -6,20 +6,37 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Fade from 'react-reveal/Fade';
+import { Box } from "@mui/material";
 
 const styles = {
   link: {
     textDecoration: 'none',
-    color: '#fff'
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
-    width: '100%',
-    height: 40,
-    color: 'text.primary',
+    width: 28,
+    height: 28,
+    color: '#fff',
   },
-  iconWrapper: {
-    textDecoration: 'none',
-  }
+};
+
+const iconCardSx = {
+  background: 'rgba(255, 255, 255, 0.05)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  borderRadius: '12px',
+  p: 1.5,
+  transition: 'all 300ms ease-in-out',
+  '&:hover': {
+    background: 'rgba(133, 196, 103, 0.12)',
+    borderColor: 'rgba(133, 196, 103, 0.4)',
+    boxShadow: '0 4px 16px rgba(133, 196, 103, 0.2)',
+    transform: 'translateY(-2px)',
+  },
 };
 
 export const Contact = () => (
@@ -33,32 +50,32 @@ export const Contact = () => (
           follow me
         </Typography>
       </Grid>
-      <Grid pt={3} columnSpacing={1} display="flex">
-        <Grid p={1}>
+      <Grid pt={3} display="flex" gap={1.5}>
+        <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='mailto:bartaliskrisztian4@gmail.com'>
             <EmailIcon style={styles.icon} />
           </a>
-        </Grid>
-        <Grid p={1}>
+        </Box>
+        <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='https://github.com/bartaliskrisztian'>
             <GitHubIcon style={styles.icon} />
           </a>
-        </Grid>
-        <Grid p={1}>
+        </Box>
+        <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='https://www.facebook.com/bartalis.krisztian'>
             <FacebookIcon style={styles.icon} />
           </a>
-        </Grid>
-        <Grid p={1}>
+        </Box>
+        <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='https://www.instagram.com/bartaliskrisztian'>
             <InstagramIcon style={styles.icon} />
           </a>
-        </Grid>
-        <Grid p={1}>
+        </Box>
+        <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='https://www.linkedin.com/in/bartaliskrisztian'>
             <LinkedInIcon style={styles.icon} />
           </a>
-        </Grid>
+        </Box>
       </Grid>
     </Grid>
   </Fade>

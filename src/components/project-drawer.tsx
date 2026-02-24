@@ -12,11 +12,10 @@ const styles = {
   },
   divider: {
     width: '100%',
-    background: '#707070',
+    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent)',
     my: 3
   },
   chip: {
-    background: '#393c3f',
     mx: 'auto',
     my: 4,
   },

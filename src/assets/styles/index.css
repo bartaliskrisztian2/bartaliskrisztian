@@ -1,6 +1,11 @@
 body {
     margin: 0;
-    background-color: #000;
+    background-color: #040408;
+    background-image:
+        radial-gradient(ellipse at 10% 25%, rgba(0, 220, 200, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 88% 8%, rgba(140, 40, 255, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at 55% 92%, rgba(20, 80, 220, 0.14) 0%, transparent 50%);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

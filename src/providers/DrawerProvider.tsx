@@ -5,8 +5,10 @@ const styles = ({
   drawer: {
     width: { xs: '85%', md: '70%', lg: '30%' },
     maxWidth: '400px',
-    background: "#000",
-    borderLeft: '1px solid #707070'
+    background: 'rgba(5, 5, 8, 0.85)',
+    backdropFilter: 'blur(30px)',
+    WebkitBackdropFilter: 'blur(30px)',
+    borderLeft: '1px solid rgba(255, 255, 255, 0.08)',
   },
 });
 

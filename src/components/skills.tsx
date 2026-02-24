@@ -49,7 +49,6 @@ const styles = {
     textAlign: 'center'
   },
   chip: {
-    background: '#393c3f',
     mx: 'auto',
     my: 4,
   },
@@ -58,6 +57,15 @@ const styles = {
     pl: 2
   }
 };
+
+const SkillItem = ({ src, alt, label }: { src: string; alt: string; label: string }) => (
+  <Grid item xs={4} md={2}>
+    <div className="skill-item">
+      <img src={src} alt={alt} style={styles.icon} />
+      <Typography variant="body1" sx={styles.text}>{label}</Typography>
+    </div>
+  </Grid>
+);
 
 export const Skills = () => (
   <Fade>
@@ -70,162 +78,60 @@ export const Skills = () => (
           <Chip sx={styles.chip} label="Languages" />
         </Grid>
         <Grid container item pt={3} rowSpacing={2} columnSpacing={2}>
-          <Grid item xs={4} md={2}>
-            <img src={JavascriptLogo} alt="javascript logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>JavaScript</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={TypescriptLogo} alt="typescript logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>TypeScript</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={JavaLogo} alt="java logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Java</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={PHPLogo} alt="php logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>PHP</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={PythonLogo} alt="python logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Python</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={GraphQlLogo} alt="graphql logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>GraphQL</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={SqlLogo} alt="SQL logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>SQL</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={CypherLogo} alt="cypher logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Cypher</Typography>
-          </Grid>
+          <SkillItem src={JavascriptLogo} alt="javascript logo" label="JavaScript" />
+          <SkillItem src={TypescriptLogo} alt="typescript logo" label="TypeScript" />
+          <SkillItem src={JavaLogo} alt="java logo" label="Java" />
+          <SkillItem src={PHPLogo} alt="php logo" label="PHP" />
+          <SkillItem src={PythonLogo} alt="python logo" label="Python" />
+          <SkillItem src={GraphQlLogo} alt="graphql logo" label="GraphQL" />
+          <SkillItem src={SqlLogo} alt="SQL logo" label="SQL" />
+          <SkillItem src={CypherLogo} alt="cypher logo" label="Cypher" />
         </Grid>
         <Grid container>
           <Chip sx={styles.chip} label="Web development" />
         </Grid>
         <Grid container item pt={3} rowSpacing={2} columnSpacing={2}>
-          <Grid item xs={4} md={2}>
-            <img src={Html5Logo} alt="html5 logo" style={styles.icon} className="skill-icon" />
-            <Typography variant="body1" sx={styles.text}>HTML5</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={CSS3Logo} alt="css3 logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>CSS3</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={ReactLogo} alt="react logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>ReactJS</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={NodeLogo} alt="node logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>NodeJS</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={SpringLogo} alt="spring logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Spring Boot</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={NestjsLogo} alt="nestjs logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>NestJS</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={MaterialUILogo} alt="material ui logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>MUI</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={IonicLogo} alt="ionic logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Ionic</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={ReduxLogo} alt="redux logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Redux toolkit</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={ShopifyLogo} alt="shopify logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Shopify</Typography>
-          </Grid>
+          <SkillItem src={Html5Logo} alt="html5 logo" label="HTML5" />
+          <SkillItem src={CSS3Logo} alt="css3 logo" label="CSS3" />
+          <SkillItem src={ReactLogo} alt="react logo" label="ReactJS" />
+          <SkillItem src={NodeLogo} alt="node logo" label="NodeJS" />
+          <SkillItem src={SpringLogo} alt="spring logo" label="Spring Boot" />
+          <SkillItem src={NestjsLogo} alt="nestjs logo" label="NestJS" />
+          <SkillItem src={MaterialUILogo} alt="material ui logo" label="MUI" />
+          <SkillItem src={IonicLogo} alt="ionic logo" label="Ionic" />
+          <SkillItem src={ReduxLogo} alt="redux logo" label="Redux toolkit" />
+          <SkillItem src={ShopifyLogo} alt="shopify logo" label="Shopify" />
         </Grid>
         <Grid container>
           <Chip sx={styles.chip} label="Database and data management" />
         </Grid>
         <Grid container item pt={3} rowSpacing={2} columnSpacing={2}>
-          <Grid item xs={4} md={2}>
-            <img src={DynamodbLogo} alt="dynamodb logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>AWS DynamoDB</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={S3Logo} alt="s3 logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>AWS S3</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={ElasticsearchLogo} alt="elasticsearch logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Elasticsearch</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={MongoLogo} alt="mongodb logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>MongoDB</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={Neo4JLogo} alt="neo4j logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Neo4J</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={RedisLogo} alt="redis logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Redis</Typography>
-          </Grid>
+          <SkillItem src={DynamodbLogo} alt="dynamodb logo" label="AWS DynamoDB" />
+          <SkillItem src={S3Logo} alt="s3 logo" label="AWS S3" />
+          <SkillItem src={ElasticsearchLogo} alt="elasticsearch logo" label="Elasticsearch" />
+          <SkillItem src={MongoLogo} alt="mongodb logo" label="MongoDB" />
+          <SkillItem src={Neo4JLogo} alt="neo4j logo" label="Neo4J" />
+          <SkillItem src={RedisLogo} alt="redis logo" label="Redis" />
         </Grid>
         <Grid container>
           <Chip sx={styles.chip} label="Version control and Development Tools" />
         </Grid>
         <Grid container item pt={3} rowSpacing={2} columnSpacing={2}>
-          <Grid item xs={4} md={2}>
-            <img src={DockerLogo} alt="docker logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Docker</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={GrafanaLogo} alt="grafana logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Grafana</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={GitLogo} alt="git logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Git</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={VSCodeLogo} alt="vscode logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>VSCode</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={IntellijLogo} alt="intellij logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>IntellIJ</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={PostmanLogo} alt="postman logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Postman</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={SourceTreeLogo} alt="sourcetree logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>SourceTree</Typography>
-          </Grid>
+          <SkillItem src={DockerLogo} alt="docker logo" label="Docker" />
+          <SkillItem src={GrafanaLogo} alt="grafana logo" label="Grafana" />
+          <SkillItem src={GitLogo} alt="git logo" label="Git" />
+          <SkillItem src={VSCodeLogo} alt="vscode logo" label="VSCode" />
+          <SkillItem src={IntellijLogo} alt="intellij logo" label="IntellIJ" />
+          <SkillItem src={PostmanLogo} alt="postman logo" label="Postman" />
+          <SkillItem src={SourceTreeLogo} alt="sourcetree logo" label="SourceTree" />
         </Grid>
         <Grid container>
           <Chip sx={styles.chip} label="Cloud Services" />
         </Grid>
         <Grid container item pt={3} rowSpacing={2} columnSpacing={2}>
-          <Grid item xs={4} md={2}>
-            <img src={AWSLogo} alt="aws logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>AWS</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={LambdaLogo} alt="aws lambda" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>AWS Lambda</Typography>
-          </Grid>
-          <Grid item xs={4} md={2}>
-            <img src={HerokuLogo} alt="heroku logo" style={styles.icon} />
-            <Typography variant="body1" sx={styles.text}>Heroku</Typography>
-          </Grid>
+          <SkillItem src={AWSLogo} alt="aws logo" label="AWS" />
+          <SkillItem src={LambdaLogo} alt="aws lambda" label="AWS Lambda" />
+          <SkillItem src={HerokuLogo} alt="heroku logo" label="Heroku" />
         </Grid>
       </Grid>
       <Grid pt={3}>
@@ -233,12 +139,16 @@ export const Skills = () => (
       </Grid>
       <Grid container pt={3} columnSpacing={2} justifyContent="center">
         <Grid item xs={4} md={2}>
-          <img src={StackOverflowLogo} alt="stack overflow logo" style={styles.icon} />
-          <Typography variant="body1" sx={styles.text}>Stack Overflow</Typography>
+          <div className="skill-item">
+            <img src={StackOverflowLogo} alt="stack overflow logo" style={styles.icon} />
+            <Typography variant="body1" sx={styles.text}>Stack Overflow</Typography>
+          </div>
         </Grid>
         <Grid item xs={4} md={2}>
-          <img src={ChatGPTLogo} alt="chatgpt logo" style={styles.icon} />
-          <Typography variant="body1" sx={styles.text}>ChatGPT</Typography>
+          <div className="skill-item">
+            <img src={ChatGPTLogo} alt="chatgpt logo" style={styles.icon} />
+            <Typography variant="body1" sx={styles.text}>ChatGPT</Typography>
+          </div>
         </Grid>
       </Grid>
     </Grid>

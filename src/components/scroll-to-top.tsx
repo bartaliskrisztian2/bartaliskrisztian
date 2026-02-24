@@ -28,7 +28,7 @@ export const ScrollToTop = () => {
   return (
     <Box sx={rootSx} onClick={scrollToTop}>
       <Tooltip title="Scroll to top">
-        <Fab color="primary" size="small">
+        <Fab size="small">
           <KeyboardArrowUpIcon fontSize="small" />
         </Fab>
       </Tooltip>

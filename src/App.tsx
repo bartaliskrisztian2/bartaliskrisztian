@@ -20,10 +20,11 @@ const styles = {
     flexDirection: 'column',
     margin: 'auto',
     padding: 4,
+    pt: { xs: 9, md: 11 },
   },
   divider: {
     width: '100%',
-    background: 'grey',
+    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent)',
     mt: 2
   }
 };
