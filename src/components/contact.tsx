@@ -43,13 +43,9 @@ export const Contact = () => (
   <Fade>
     <Grid pt={3} width="100%" id="contact">
       <Typography variant="h3" sx={{ color: 'text.primary' }}>
-        contact
+        follow me
       </Typography>
-      <Grid pt={2}>
-        <Typography sx={{ color: '#8d8d8d' }}>
-          follow me
-        </Typography>
-      </Grid>
+     
       <Grid pt={3} display="flex" gap={1.5}>
         <Box sx={iconCardSx}>
           <a style={styles.link} target="_blank" rel="noreferrer" href='mailto:bartaliskrisztian4@gmail.com'>

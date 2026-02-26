@@ -1,7 +1,8 @@
 import createTheme from "@mui/material/styles/createTheme";
+import { responsiveFontSizes } from "@mui/material/styles";
 import SpaceGrotesk from "../assets/styles/space-grotesk.ttf";
 
-export const theme = createTheme({
+export const theme = responsiveFontSizes(createTheme({
   palette: {
     primary: {
       main: '#fff',
@@ -58,4 +59,4 @@ export const theme = createTheme({
       },
     },
   }
-});
+}), { variants: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2'] });

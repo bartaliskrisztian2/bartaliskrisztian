@@ -20,13 +20,14 @@ const styles = {
     transition: 'all 0.75s ease',
   },
   photoWrapper: {
-    borderRadius: '16px',
+    borderRadius: '50%',
     overflow: 'hidden',
     border: '1px solid rgba(255, 255, 255, 0.09)',
     boxShadow: '0 8px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 220, 200, 0.05)',
     backdropFilter: 'blur(10px)',
     WebkitBackdropFilter: 'blur(10px)',
     lineHeight: 0,
+    aspectRatio: '1 / 1',
   }
 } as any;
 
@@ -38,12 +39,12 @@ export const Home = () => {
       <Grid pt={{ xs: 1, md: 4 }} width="100%" id="home">
 
         {/* Hero: greeting + location */}
-        <Grid container direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-start', md: 'center' }}>
-          <Typography variant="h3" sx={{ color: 'text.primary', pb: { xs: 2, md: 0 } }}>
+        <Grid container direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-end', md: 'center' }} gap={2}>
+          <Typography variant="h3" sx={{ color: 'text.primary', pb: { xs: 2, md: 0 }, order: { xs: 1, md: 0 }, alignSelf: 'flex-start' }}>
             hi, I'm Krisz
             <span className="wave">👋</span>
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.primary' }}>
+          <Typography variant="body2" sx={{ color: 'text.primary', order: { xs: 0, md: 1 }, pb: { xs: 1, md: 0 } }}>
             <PlaceIcon sx={{ pr: 1, verticalAlign: 'bottom' }} />
             Székelyudvarhely, Romania
           </Typography>
@@ -51,18 +52,18 @@ export const Home = () => {
 
         {/* Professional bio */}
         <Grid pt={2}>
-          <Typography sx={{ color: '#8d8d8d' }}>
+          <Typography sx={{ color: '#8d8d8d' }} variant="body2">
             I'm a full stack web developer with almost 5 years experience and I currently work as a software engineer at <Link sx={styles.link} target="_blank" href="https://www.sonrisa.hu/">Sonrisa Technologies</Link>.
             As an enthusiastic software engineer, my constant pursuit involves acquiring new knowledge and seeking
             streamlined solutions to address current problems and challenges.
           </Typography>
-          <Typography sx={{ color: '#8d8d8d', pt: 1 }}>
+          <Typography sx={{ color: '#8d8d8d', pt: 1 }} variant="body2">
             I very much enjoy working on both the front-end and back-end development. I find it important to maintain
             a balance between these two areas. I typically work with the technologies listed below, but I am always open
             to exploring new things. I understand that mastering various programming techniques and methodologies is
             more crucial than delving into the details of specific technologies.
           </Typography>
-          <Typography sx={{ color: '#8d8d8d', pt: 1 }}>
+          <Typography sx={{ color: '#8d8d8d', pt: 1 }} variant="body2">
             Programming is also a hobby for me, and I greatly enjoy it. However, it is equally important for me to
             work in a friendly environment where I can continually improve.
           </Typography>
@@ -87,7 +88,7 @@ export const Home = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
+          <Grid item xs={12} md={5} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, order: { xs: -1, md: 1 } }}>
             <Box sx={{ width: { xs: '65%', sm: '50%', md: '100%' }, maxWidth: '340px', ...styles.photoWrapper }}>
               <img
                 src={Image3}

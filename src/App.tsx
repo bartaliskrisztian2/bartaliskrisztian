@@ -13,14 +13,14 @@ import { Divider } from '@mui/material';
 const styles = {
   app: {
     width: {
-      xs: '80%',
+      xs: '90%',
       md: '60%',
     },
     display: 'flex',
     flexDirection: 'column',
     margin: 'auto',
-    padding: 4,
-    pt: { xs: 9, md: 11 },
+    padding: { xs: 2, md: 4 },
+    pt: { xs: 7, md: 11 },
   },
   divider: {
     width: '100%',

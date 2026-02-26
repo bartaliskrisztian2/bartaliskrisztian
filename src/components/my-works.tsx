@@ -42,11 +42,12 @@ const styles = {
 type Project = {
   image: string;
   url?: string;
+  comingSoon?: boolean;
 };
 
 const projects: Project[] = [
+  { image: TherapistiImage, comingSoon: true },
   { image: HFNImage, url: "https://hargitafightnight.ro" },
-  { image: TherapistiImage },
   { image: BoldingatlanImage, url: "https://boldingatlan.hu" },
   { image: JohnHairImage, url: "https://johnhair.ro" },
 ];
@@ -59,13 +60,10 @@ export const MyWorks = () => {
       <Typography variant="h3" sx={{ color: 'text.primary' }}>
         my recent work
       </Typography>
-      <Typography variant="body1" pt={2} sx={{ color: '#8d8d8d' }}>
+      <Typography variant="body2" pt={2} sx={{ color: '#8d8d8d' }}>
         Here are a few past projects I've worked on.
       </Typography>
-      <Grid container>
-        <Chip sx={styles.chip} label="Side projects" />
-      </Grid>
-      <Grid container pt={1} gap={3} justifyContent="center">
+      <Grid container pt={3} gap={3} justifyContent="center">
         {projects.map((project, i) => (
           <Grid
             key={i}
@@ -77,6 +75,7 @@ export const MyWorks = () => {
             rel={project.url ? 'noreferrer' : undefined}
             sx={{
               ...styles.imageWrapper,
+              position: 'relative',
               ...(project.url ? {} : { cursor: 'default', '&:hover': {} }),
             }}
           >
@@ -87,6 +86,23 @@ export const MyWorks = () => {
               src={project.image}
               sx={styles.image}
             />
+            {project.comingSoon && (
+              <Chip
+                label="coming soon"
+                size="small"
+                sx={{
+                  position: 'absolute',
+                  top: -15,
+                  right: -5,
+                  background: 'rgba(133, 196, 103, 0.15)',
+                  border: '1px solid rgba(133, 196, 103, 0.4)',
+                  color: '#85c467',
+                  fontSize: '0.65rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.5px',
+                }}
+              />
+            )}
           </Grid>
         ))}
       </Grid>

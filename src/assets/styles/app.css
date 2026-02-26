@@ -12,17 +12,34 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 10px;
-    padding: 12px 8px;
-    transition: all 300ms ease-in-out;
+    border-radius: 20px;
+    padding: 6px 16px;
+    transition: background 300ms ease-in-out, border-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
     cursor: default;
+    display: inline-block;
+    animation: skillFloat 3.5s ease-in-out infinite;
 }
 
 .skill-item:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(133, 196, 103, 0.35);
-    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    animation-play-state: paused;
+}
+
+*:nth-child(2n) > .skill-item  { animation-delay: -0.6s; }
+*:nth-child(3n) > .skill-item  { animation-delay: -1.2s; }
+*:nth-child(4n) > .skill-item  { animation-delay: -1.8s; }
+*:nth-child(5n) > .skill-item  { animation-delay: -2.4s; }
+*:nth-child(6n) > .skill-item  { animation-delay: -3.0s; }
+*:nth-child(7n) > .skill-item  { animation-delay: -0.3s; }
+*:nth-child(8n) > .skill-item  { animation-delay: -0.9s; }
+*:nth-child(9n) > .skill-item  { animation-delay: -1.5s; }
+*:nth-child(10n) > .skill-item { animation-delay: -2.1s; }
+
+@keyframes skillFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-5px); }
 }
 
 .wave {
