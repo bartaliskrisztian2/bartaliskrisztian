@@ -1,6 +1,11 @@
 {
+  "name": "Bartalis Krisztián | Full Stack Developer",
   "short_name": "Bartalis Krisztián",
-  "name": "Website of Bartalis Krisztián",
+  "description": "Portfolio of Bartalis Krisztián, full stack web developer.",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#040408",
+  "background_color": "#040408",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,28 +13,25 @@
       "type": "image/x-icon"
     },
     {
-      "src": "favicon-16x16.ico",
+      "src": "favicon-16x16.png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "favicon-32x32.ico",
+      "src": "favicon-32x32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "android-chrome-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
