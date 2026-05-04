@@ -5,6 +5,8 @@ import Image3 from '../assets/images/home/bartalis-krisztian-3.png';
 import Fade from 'react-reveal/Fade';
 import { Box, Link } from "@mui/material";
 import useImageLoading from "../hooks/use-image-loading";
+import { TypeAnimation } from 'react-type-animation';
+import { useEffect, useRef, useState } from 'react';
 
 const styles = {
   link: {
@@ -31,6 +33,51 @@ const styles = {
   }
 } as any;
 
+const stats = [
+  { value: 5, suffix: '+', label: 'years experience' },
+  { value: 10, suffix: '+', label: 'projects shipped' },
+  { value: 20, suffix: '+', label: 'technologies' },
+];
+
+const StatCounter = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !animated.current) {
+        animated.current = true;
+        let start = 0;
+        const duration = 1200;
+        const step = (timestamp: number) => {
+          if (!start) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          setCount(Math.floor(progress * value));
+          if (progress < 1) requestAnimationFrame(step);
+          else setCount(value);
+        };
+        requestAnimationFrame(step);
+      }
+    }, { threshold: 0.3 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <Box ref={ref} sx={{ textAlign: 'center', px: { xs: 2, md: 3 } }}>
+      <Typography variant="h4" sx={{ color: '#85c467', fontWeight: 700, lineHeight: 1 }}>
+        {count}{suffix}
+      </Typography>
+      <Typography variant="caption" sx={{ color: '#8d8d8d', letterSpacing: '0.5px' }}>
+        {label}
+      </Typography>
+    </Box>
+  );
+};
+
 export const Home = () => {
   const { onImageLoad } = useImageLoading();
 
@@ -40,10 +87,30 @@ export const Home = () => {
 
         {/* Hero: greeting + location */}
         <Grid container direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-end', md: 'center' }} gap={2}>
-          <Typography variant="h3" sx={{ color: 'text.primary', pb: { xs: 2, md: 0 }, order: { xs: 1, md: 0 }, alignSelf: 'flex-start' }}>
-            hi, I'm Krisz
-            <span className="wave">👋</span>
-          </Typography>
+          <Box sx={{ order: { xs: 1, md: 0 }, alignSelf: 'flex-start' }}>
+            <Typography variant="h3" sx={{ color: 'text.primary', pb: { xs: 1, md: 0.5 } }}>
+              hi, I'm Krisz
+              <span className="wave">👋</span>
+            </Typography>
+            <TypeAnimation
+              sequence={[
+                'full-stack developer', 3000,
+                'MMA enthusiast', 2000,
+                'craft beer lover', 2000,
+                'problem solver', 2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              deletionSpeed={65}
+              repeat={Infinity}
+              style={{
+                color: '#85c467',
+                fontSize: '1.1rem',
+                fontFamily: 'inherit',
+                letterSpacing: '0.5px',
+              }}
+            />
+          </Box>
           <Typography variant="body2" sx={{ color: 'text.primary', order: { xs: 0, md: 1 }, pb: { xs: 1, md: 0 } }}>
             <PlaceIcon sx={{ pr: 1, verticalAlign: 'bottom' }} />
             Székelyudvarhely, Romania
@@ -68,6 +135,24 @@ export const Home = () => {
             work in a friendly environment where I can continually improve.
           </Typography>
         </Grid>
+
+        {/* Stats row */}
+        <Box sx={{
+          mt: 4,
+          py: 2.5,
+          display: 'flex',
+          justifyContent: 'center',
+          gap: { xs: 2, md: 4 },
+          background: 'rgba(255, 255, 255, 0.03)',
+          border: '1px solid rgba(255, 255, 255, 0.07)',
+          borderRadius: '16px',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+        }}>
+          {stats.map((s) => (
+            <StatCounter key={s.label} {...s} />
+          ))}
+        </Box>
 
         {/* About me: text left, photo right */}
         <Grid container pt={4} spacing={{ xs: 3, md: 5 }} alignItems="flex-start">

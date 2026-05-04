@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Grid from "@mui/material/Grid/Grid";
 import Typography from "@mui/material/Typography/Typography";
 import Fade from 'react-reveal/Fade';
+import { Tab, Tabs } from '@mui/material';
 
 const styles = {
   text: {
@@ -8,6 +10,51 @@ const styles = {
     textAlign: 'center'
   },
 };
+
+type Category = 'all' | 'languages' | 'web' | 'database' | 'tools' | 'cloud' | 'ai';
+
+const CATEGORIES: { key: Category; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'languages', label: 'Languages' },
+  { key: 'web', label: 'Web' },
+  { key: 'database', label: 'Database' },
+  { key: 'tools', label: 'Tools' },
+  { key: 'cloud', label: 'Cloud' },
+  { key: 'ai', label: 'AI' },
+];
+
+const SKILL_GROUPS: { category: Category; label: string; skills: string[] }[] = [
+  {
+    category: 'languages',
+    label: 'Languages',
+    skills: ['JavaScript', 'TypeScript', 'Java', 'PHP', 'Python', 'GraphQL', 'SQL', 'Cypher'],
+  },
+  {
+    category: 'web',
+    label: 'Web development',
+    skills: ['HTML5', 'CSS3', 'ReactJS', 'NodeJS', 'Spring Boot', 'NestJS', 'MUI', 'Ionic', 'Redux toolkit', 'Shopify'],
+  },
+  {
+    category: 'database',
+    label: 'Database and data management',
+    skills: ['AWS DynamoDB', 'AWS S3', 'Elasticsearch', 'MongoDB', 'Neo4J', 'Redis', 'PostgreSQL'],
+  },
+  {
+    category: 'tools',
+    label: 'Version control and Development Tools',
+    skills: ['Docker', 'Grafana', 'Git', 'VSCode', 'IntellIJ', 'Postman', 'SourceTree', 'Lovable', 'n8n'],
+  },
+  {
+    category: 'cloud',
+    label: 'Cloud Services',
+    skills: ['AWS', 'AWS Lambda', 'Heroku'],
+  },
+  {
+    category: 'ai',
+    label: 'AI development',
+    skills: ['Anthropic Claude', 'OpenAI', 'Gemini'],
+  },
+];
 
 const SkillItem = ({ label }: { label: string }) => (
   <Grid item xs="auto">
@@ -17,91 +64,89 @@ const SkillItem = ({ label }: { label: string }) => (
   </Grid>
 );
 
-const GroupLabel = ({ label }: { label: string }) => (
-  <Grid container sx={{ mt: 4, mb: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
-    <Typography
-      variant="overline"
-      sx={{
-        color: 'rgba(133, 196, 103, 0.75)',
-        letterSpacing: '2px',
-        fontSize: '0.68rem',
-        borderBottom: '1px solid rgba(133, 196, 103, 0.25)',
-        pb: 0.5,
-        width: { xs: '100%', md: 'auto' },
-        textAlign: { xs: 'center', md: 'left' },
-      }}
-    >
-      {label}
-    </Typography>
-  </Grid>
-);
+export const Skills = () => {
+  const [active, setActive] = useState<Category>('languages');
 
-export const Skills = () => (
-  <Fade>
-    <Grid pt={3} width="100%" id="skills">
-      <Typography variant="h3" sx={{ color: 'text.primary' }}>
-        skills
-      </Typography>
-      <Grid container pt={3} rowSpacing={2} columnSpacing={2}>
-        <GroupLabel label="Languages" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="JavaScript" />
-          <SkillItem label="TypeScript" />
-          <SkillItem label="Java" />
-          <SkillItem label="PHP" />
-          <SkillItem label="Python" />
-          <SkillItem label="GraphQL" />
-          <SkillItem label="SQL" />
-          <SkillItem label="Cypher" />
-        </Grid>
-        <GroupLabel label="Web development" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="HTML5" />
-          <SkillItem label="CSS3" />
-          <SkillItem label="ReactJS" />
-          <SkillItem label="NodeJS" />
-          <SkillItem label="Spring Boot" />
-          <SkillItem label="NestJS" />
-          <SkillItem label="MUI" />
-          <SkillItem label="Ionic" />
-          <SkillItem label="Redux toolkit" />
-          <SkillItem label="Shopify" />
-        </Grid>
-        <GroupLabel label="Database and data management" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="AWS DynamoDB" />
-          <SkillItem label="AWS S3" />
-          <SkillItem label="Elasticsearch" />
-          <SkillItem label="MongoDB" />
-          <SkillItem label="Neo4J" />
-          <SkillItem label="Redis" />
-          <SkillItem label="PostgreSQL" />
-        </Grid>
-        <GroupLabel label="Version control and Development Tools" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="Docker" />
-          <SkillItem label="Grafana" />
-          <SkillItem label="Git" />
-          <SkillItem label="VSCode" />
-          <SkillItem label="IntellIJ" />
-          <SkillItem label="Postman" />
-          <SkillItem label="SourceTree" />
-          <SkillItem label="Lovable" />
-          <SkillItem label="n8n" />
-        </Grid>
-        <GroupLabel label="Cloud Services" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="AWS" />
-          <SkillItem label="AWS Lambda" />
-          <SkillItem label="Heroku" />
-        </Grid>
-        <GroupLabel label="AI development" />
-        <Grid container item rowSpacing={2} columnSpacing={2}>
-          <SkillItem label="Anthropic Claude" />
-          <SkillItem label="OpenAI" />
-          <SkillItem label="Gemini" />
+  const visible = SKILL_GROUPS.filter(g => active === 'all' || g.category === active);
+
+  return (
+    <Fade>
+      <Grid pt={3} width="100%" id="skills">
+        <Typography variant="h3" sx={{ color: 'text.primary' }}>
+          skills
+        </Typography>
+
+        <Tabs
+          value={active}
+          onChange={(_, v) => setActive(v)}
+          variant="scrollable"
+          scrollButtons="auto"
+          sx={{
+            mt: 2.5,
+            minHeight: 36,
+            '& .MuiTabs-indicator': {
+              background: 'linear-gradient(90deg, #00dcc8, #85c467)',
+              height: '2px',
+              borderRadius: '2px',
+            },
+            '& .MuiTabs-scrollButtons': {
+              color: 'rgba(255,255,255,0.4)',
+            },
+            '& .MuiTabs-root': { borderBottom: '1px solid rgba(255,255,255,0.08)' },
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
+          {CATEGORIES.map(({ key, label }) => (
+            <Tab
+              key={key}
+              value={key}
+              label={label}
+              disableRipple
+              sx={{
+                minHeight: 36,
+                py: 0.5,
+                px: { xs: 1.5, md: 2 },
+                fontSize: '0.8rem',
+                textTransform: 'none',
+                color: 'rgba(255,255,255,0.45)',
+                transition: 'color 200ms ease',
+                '&.Mui-selected': { color: '#85c467' },
+                '&:hover': { color: 'rgba(255,255,255,0.8)' },
+              }}
+            />
+          ))}
+        </Tabs>
+
+        <Grid container pt={2} rowSpacing={2} columnSpacing={2}>
+          {visible.map(group => (
+            <Grid key={group.category} container item xs={12}>
+              {active === 'all' && (
+                <Grid container sx={{ mt: 2, mb: 1, justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                  <Typography
+                    variant="overline"
+                    sx={{
+                      color: 'rgba(133, 196, 103, 0.75)',
+                      letterSpacing: '2px',
+                      fontSize: '0.68rem',
+                      borderBottom: '1px solid rgba(133, 196, 103, 0.25)',
+                      pb: 0.5,
+                      width: { xs: '100%', md: 'auto' },
+                      textAlign: { xs: 'center', md: 'left' },
+                    }}
+                  >
+                    {group.label}
+                  </Typography>
+                </Grid>
+              )}
+              <Grid container item rowSpacing={2} columnSpacing={2}>
+                {group.skills.map(skill => (
+                  <SkillItem key={skill} label={skill} />
+                ))}
+              </Grid>
+            </Grid>
+          ))}
         </Grid>
       </Grid>
-    </Grid>
-  </Fade>
-);
+    </Fade>
+  );
+};

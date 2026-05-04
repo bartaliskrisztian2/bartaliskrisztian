@@ -8,6 +8,9 @@ import { MyWorks } from './components/my-works';
 import { Skills } from './components/skills';
 import { Footer } from './components/footer';
 import { ScrollToTop } from './components/scroll-to-top';
+import { Experience } from './components/experience';
+import { ScrollProgressBar } from './components/scroll-progress-bar';
+import { CursorGlow } from './components/cursor-glow';
 import { Divider } from '@mui/material';
 
 const styles = {
@@ -31,18 +34,24 @@ const styles = {
 
 function App() {
   return (
-    <Box className="App" sx={styles.app}>
-      <Header />
-      <Home />
-      <Divider sx={styles.divider} />
-      <MyWorks />
-      <Divider sx={styles.divider} />
-      <Skills />
-      <Divider sx={styles.divider} />
-      <Contact />
-      <Footer />
-      <ScrollToTop />
-    </Box>
+    <>
+      <ScrollProgressBar />
+      <CursorGlow />
+      <Box className="App" sx={styles.app}>
+        <Header />
+        <Home />
+        <Divider sx={styles.divider} />
+        <Experience />
+        <Divider sx={styles.divider} />
+        <MyWorks />
+        <Divider sx={styles.divider} />
+        <Skills />
+        <Divider sx={styles.divider} />
+        <Contact />
+        <Footer />
+        <ScrollToTop />
+      </Box>
+    </>
   );
 }
 

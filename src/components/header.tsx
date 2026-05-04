@@ -52,9 +52,12 @@ export const Header = () => {
     <Box sx={rootSx}>
       <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
         <Box sx={{ width: { xs: '80%', md: '60%' }, mx: 'auto' }}>
-          <Toolbar variant="dense" sx={{ padding: '0 !important', py: { xs: 1, md: 1.5 } }}>
+          <Toolbar variant="dense" sx={{ padding: '0 !important', py: { xs: 1, md: 1.5 }, justifyContent: { xs: 'center', md: 'flex-start' } }}>
             <Typography sx={styles.linkWrapper}>
               <Link href="#home" sx={styles.link}>home</Link>
+            </Typography>
+            <Typography sx={styles.linkWrapper}>
+              <Link href="#experience" sx={styles.link}>experience</Link>
             </Typography>
             <Typography sx={styles.linkWrapper}>
               <Link href="#work" sx={styles.link}>work</Link>

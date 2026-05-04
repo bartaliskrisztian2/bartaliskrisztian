@@ -7,6 +7,7 @@ import BoldingatlanImage from '../assets/images/work/boldingatlan.png';
 import BLMProConstructImage from '../assets/images/work/blm-pro-construct-logo.png';
 import { Box, Chip } from "@mui/material";
 import useImageLoading from "../hooks/use-image-loading";
+import Tilt from 'react-parallax-tilt';
 
 const styles = {
   chip: {
@@ -14,7 +15,7 @@ const styles = {
     my: 4,
   },
   imageWrapper: {
-    height: 90,
+    height: { xs: 60, sm: 90 },
     border: '1px solid rgba(255, 255, 255, 0.08)',
     borderRadius: '12px',
     padding: '20px',
@@ -22,7 +23,7 @@ const styles = {
     backdropFilter: 'blur(20px)',
     WebkitBackdropFilter: 'blur(20px)',
     boxShadow: '0 4px 24px rgba(0, 0, 0, 0.4)',
-    transition: 'all 300ms ease-in-out',
+    transition: 'border-color 300ms ease-in-out, box-shadow 300ms ease-in-out, background 300ms ease-in-out',
     cursor: 'pointer',
     textDecoration: 'none',
     display: 'block',
@@ -30,7 +31,6 @@ const styles = {
       borderColor: 'rgba(133, 196, 103, 0.5)',
       boxShadow: '0 8px 32px rgba(133, 196, 103, 0.15)',
       background: 'rgba(255, 255, 255, 0.07)',
-      transform: 'translateY(-3px)',
     }
   },
   image: {
@@ -67,44 +67,55 @@ export const MyWorks = () => {
       </Typography>
       <Grid container pt={3} gap={3} justifyContent="center">
         {projects.map((project, i) => (
-          <Grid
-            key={i}
-            item
-            xs={12} sm={6} md={4} lg={3}
-            component={project.url ? 'a' : 'div'}
-            href={project.url}
-            target={project.url ? '_blank' : undefined}
-            rel={project.url ? 'noreferrer' : undefined}
-            sx={{
-              ...styles.imageWrapper,
-              position: 'relative',
-              ...(project.url ? {} : { cursor: 'default', '&:hover': {} }),
-            }}
-          >
-            <Box
-              component="img"
-              className="smooth-loading"
-              onLoad={onImageLoad}
-              src={project.image}
-              sx={styles.image}
-            />
-            {project.comingSoon && (
-              <Chip
-                label="coming soon"
-                size="small"
+          <Grid key={i} item xs={12} sm={6} md={4} lg={3}>
+            <Tilt
+              tiltMaxAngleX={10}
+              tiltMaxAngleY={10}
+              glareEnable={true}
+              glareMaxOpacity={0.08}
+              glareColor="#85c467"
+              glarePosition="all"
+              scale={1.03}
+              transitionSpeed={400}
+              style={{ borderRadius: '12px', display: 'block' }}
+            >
+              <Box
+                component={project.url ? 'a' : 'div'}
+                href={project.url}
+                target={project.url ? '_blank' : undefined}
+                rel={project.url ? 'noreferrer' : undefined}
                 sx={{
-                  position: 'absolute',
-                  top: -15,
-                  right: -5,
-                  background: 'rgba(133, 196, 103, 0.15)',
-                  border: '1px solid rgba(133, 196, 103, 0.4)',
-                  color: '#85c467',
-                  fontSize: '0.65rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.5px',
+                  ...styles.imageWrapper,
+                  position: 'relative',
+                  ...(project.url ? {} : { cursor: 'default', '&:hover': {} }),
                 }}
-              />
-            )}
+              >
+                <Box
+                  component="img"
+                  className="smooth-loading"
+                  onLoad={onImageLoad}
+                  src={project.image}
+                  sx={styles.image}
+                />
+                {project.comingSoon && (
+                  <Chip
+                    label="coming soon"
+                    size="small"
+                    sx={{
+                      position: 'absolute',
+                      top: -15,
+                      right: -5,
+                      background: 'rgba(133, 196, 103, 0.15)',
+                      border: '1px solid rgba(133, 196, 103, 0.4)',
+                      color: '#85c467',
+                      fontSize: '0.65rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.5px',
+                    }}
+                  />
+                )}
+              </Box>
+            </Tilt>
           </Grid>
         ))}
       </Grid>
