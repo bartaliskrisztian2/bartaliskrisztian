@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.08c360a1.css",
-    "main.js": "/static/js/main.c552bc98.js",
+    "main.js": "/static/js/main.81599fd3.js",
     "static/js/787.89ff9bd7.chunk.js": "/static/js/787.89ff9bd7.chunk.js",
     "static/media/bartalis-krisztian-3.png": "/static/media/bartalis-krisztian-3.403410557f935bea1fc1.png",
     "static/media/space-grotesk.ttf": "/static/media/space-grotesk.5771010795a77ba7459b.ttf",
+    "static/media/blm-pro-construct-logo.png": "/static/media/blm-pro-construct-logo.b134b538ed59894d53a8.png",
     "static/media/boldingatlan.png": "/static/media/boldingatlan.88d1491426c72f59770f.png",
     "static/media/hfn_logo.webp": "/static/media/hfn_logo.bcf95ee70f8bbd99f640.webp",
     "static/media/johnhair.avif": "/static/media/johnhair.aba8b8cf2cdfe6a884fc.avif",
     "static/media/therapisti.svg": "/static/media/therapisti.1b384edb5e80c0a0b58e7bad30d79739.svg",
     "index.html": "/index.html",
     "main.08c360a1.css.map": "/static/css/main.08c360a1.css.map",
-    "main.c552bc98.js.map": "/static/js/main.c552bc98.js.map",
+    "main.81599fd3.js.map": "/static/js/main.81599fd3.js.map",
     "787.89ff9bd7.chunk.js.map": "/static/js/787.89ff9bd7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.08c360a1.css",
-    "static/js/main.c552bc98.js"
+    "static/js/main.81599fd3.js"
   ]
 }
