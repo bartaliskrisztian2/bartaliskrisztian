@@ -4,6 +4,7 @@ import JohnHairImage from "../assets/images/work/johnhair.avif";
 import TherapistiImage from '../assets/images/work/therapisti.svg';
 import HFNImage from '../assets/images/work/hfn_logo.webp';
 import BoldingatlanImage from '../assets/images/work/boldingatlan.png';
+import BLMProConstructImage from '../assets/images/work/blm-pro-construct-logo.png';
 import { Box, Chip } from "@mui/material";
 import useImageLoading from "../hooks/use-image-loading";
 
@@ -46,10 +47,11 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { image: TherapistiImage, comingSoon: true },
+  { image: TherapistiImage, url: "https://therapisti.ro" },
   { image: HFNImage, url: "https://hargitafightnight.ro" },
   { image: BoldingatlanImage, url: "https://boldingatlan.hu" },
   { image: JohnHairImage, url: "https://johnhair.ro" },
+  { image: BLMProConstructImage, comingSoon: true },
 ];
 
 export const MyWorks = () => {
